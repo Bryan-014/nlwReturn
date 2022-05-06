@@ -1,0 +1,434 @@
+/*------Inicio Geral-----------*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #1971c2;
+  --headline: #212529;
+  --paragraph: #495057;
+  --brend-color: #d0ebff;
+  --bg-light: #f7f9f9;
+
+  --nav-height: 7.2rem;
+  font-size: 62.5%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'DM Sans';
+  font-size: 1.6rem;
+  text-align: center;
+  overflow: overlay;
+  background-color: var(--bg-light);
+}
+
+.wrapper {
+  width: 37.5rem;
+  margin-inline: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+section {
+  padding-block: 10rem;
+}
+
+/*------Fim Geral-----------*/
+
+/*-------Inicio home----------*/
+
+#home {
+  padding-top: calc(4.1rem + var(--nav-height));
+}
+
+#home::before {
+  content: '';
+  width: 100%;
+  height: calc(108rem + var(--nav-height));
+  background: var(--brend-color);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#home h4 {
+  margin-bottom: 1.6rem;
+  font-size: 1.4rem;
+  color: var(--primary-color);
+}
+
+#home h1 {
+  margin-bottom: 2.4rem;
+  font-size: 3.4rem;
+  color: var(--headline);
+  line-height: 130%;
+}
+
+#home p {
+  font-size: 1.8rem;
+  line-height: 150%;
+  font-weight: 400;
+  color: var(--paragraph);
+  margin-bottom: 3.2rem;
+}
+
+#home button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 4rem;
+  margin-bottom: 6rem;
+  height: 5.2rem;
+  width: 26.3rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  margin-inline: auto;
+  transition: 0.5s;
+}
+
+#home button:hover,
+#contact button:hover {
+  background-color: #001d45;
+}
+
+#home .header-picture {
+  width: 25rem;
+  display: block;
+  margin-inline: auto;
+  object-position: 0 2rem;
+}
+
+#home div.stat > h3 {
+  font-weight: 700;
+  font-size: 4.8rem;
+  line-height: 130%;
+  color: var(--headline);
+  margin-bottom: 0.4rem;
+}
+
+#home .complement-text {
+  margin: 0;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--primary-color);
+}
+
+#home .stats {
+  padding-block: 4rem;
+  margin-top: 0;
+  width: 32.7rem;
+  margin-inline: auto;
+  background: #fffaf1;
+  border-radius: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6rem;
+  border: 1px solid var(--brend-color);
+}
+
+/*-------Fim Home----------*/
+
+/*-------Inicio Navigation----------*/
+
+nav {
+  height: var(--nav-height);
+  display: flex;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100vw;
+}
+
+nav .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav.scroll {
+  background-color: var(--primary-color);
+}
+
+nav.scroll .logo path {
+  fill: #fff;
+}
+
+nav.scroll button path {
+  stroke: #fff;
+}
+
+nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/*-------Fim Navigation----------*/
+
+/*-------Inicio Menu-expended----------*/
+
+body.menu-expanded {
+  overflow: hidden;
+}
+
+body.menu-expanded > :not(nav) {
+  visibility: hidden;
+}
+
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu {
+  transform: translateY(100%);
+}
+
+body.menu-expanded .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--primary-color);
+  width: 100vw;
+  height: 100vh;
+  padding-top: var(--nav-height);
+  transition: transform 300ms;
+
+  transform: translateY(0);
+}
+
+.menu ul:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+  margin-top: 6rem;
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+  font-weight: 700;
+}
+
+.menu ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu .primary-button {
+  background: #fff;
+  border-radius: 4rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--primary-color);
+  display: inline-block;
+  padding: 1.6rem 3.2rem;
+  margin-top: 4.8rem;
+  margin-bottom: 8rem;
+}
+
+.menu .social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
+
+body.menu-expanded .logo,
+body.menu-expanded nav button {
+  position: relative;
+  z-index: 200;
+}
+
+body.menu-expanded .logo path {
+  fill: #fff;
+}
+
+body.menu-expanded .logo path,
+body.menu-expanded nav button path {
+  stroke: #fff;
+}
+
+.close-menu {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 0px;
+  top: 0;
+}
+
+/*-------Fim Menu-expended----------*/
+
+/*-------Inicio services----------*/
+
+#services header > h4,
+#about header h4 {
+  font-size: 1.4rem;
+  line-height: 150%;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  margin-bottom: 1.6rem;
+}
+
+#services header h2,
+#about header h2 {
+  font-size: 3rem;
+  line-height: 3.9rem;
+  color: var(--headline);
+  margin-bottom: 6rem;
+}
+
+#services .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+#services .card {
+  padding: 2.4rem;
+  background-color: #fff;
+  text-align: left;
+  border: 1px solid #dce9e2;
+  border-radius: 0.6rem;
+}
+
+#services .card h3 {
+  margin-block: 1.6rem;
+}
+
+/*-------Fim services----------*/
+
+/*-------Inicio about----------*/
+
+#about {
+  background-color: #fffaf1;
+}
+
+#about .content {
+  text-align: left;
+  gap: 1.6rem;
+}
+
+#about img {
+  margin-inline: auto;
+}
+
+#about .content p {
+  margin-top: 2.4rem;
+  margin-bottom: 6rem;
+  line-height: 150%;
+  color: var(--paragraph);
+}
+
+/*-------Fim about----------*/
+
+/*-------Inicio contact----------*/
+
+#contact .content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+#contact .btn-in-left {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 4rem;
+  margin-bottom: 6rem;
+  height: 5.2rem;
+  width: 26.3rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  transition: 0.5s;
+  margin-top: 1.2rem;
+}
+
+#contact h2 {
+  margin-bottom: 3.2rem;
+}
+
+#contact .text {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/*-------Fim contact----------*/
+
+/*-------Inicio Footer----------*/
+
+footer {
+  background-color: var(--primary-color);
+  height: 28.5rem;
+}
+
+footer .content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+footer svg {
+  margin-top: 6rem;
+  height: 3.1rem;
+  width: 23.6rem;
+  margin-bottom: 2.4rem;
+}
+
+footer p {
+  color: #fff;
+  margin-bottom: 1.2rem;
+}
+
+footer .social-links {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 3.2rem;
+  margin-top: 2.4rem;
+}
+
+/*-------Fim Footer----------*/
