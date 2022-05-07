@@ -14,13 +14,21 @@ let menu = {
       const menuElement = document.querySelector(
         `.menu a[href*=${section.getAttribute('id')}]`
       );
-      menuElement.classList.remove('active');
+      menuElement.navClassList.remove('active');
       if (
         targetLine >= sectionTop &&
         !(sectionTop + sectionHeight <= targetLine)
       ) {
         menuElement.classList.add('active');
       }
+    },
+    sections: [
+      home, 
+      services, 
+      about
+    ],
+    updateMenu: () => {
+      menu.navigation.sections.forEach(item => menu.navigation.activateMenuAtCurrentSection);
     }
   },
   bodyClassList: document.body.classList,
@@ -42,9 +50,7 @@ let menu = {
 document.addEventListener('scroll', () => {
   menu.navigation.showNavOnScroll();
   menu.backToTopButton.onScrollEvent();
-  menu.navigation.activateMenuAtCurrentSection(home);
-  menu.navigation.activateMenuAtCurrentSection(services);
-  menu.navigation.activateMenuAtCurrentSection(about);
+  menu.navigation.updateMenu();
 });
 
 ScrollReveal({
