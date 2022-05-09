@@ -27,7 +27,7 @@ let menu = {
       menu.navigation.sections.forEach(item =>
         menu.navigation.activateMenuAtCurrentSection(item)
       );
-    },
+    }
   },
   bodyClassList: document.body.classList,
   expanded: {
