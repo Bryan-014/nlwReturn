@@ -21,13 +21,13 @@ let menu = {
       ) {
         menuElement.classList.add('active');
       }
-    }
-  },
-  sections: [home, services, about],
-  onUpdateMenu: () => {
-    menu.navigation.sections.forEach(item =>
-      menu.navigation.activateMenuAtCurrentSection(item)
-    );
+    },
+    sections: [home, services, about],
+    onUpdateMenu: () => {
+      menu.navigation.sections.forEach(item =>
+        menu.navigation.activateMenuAtCurrentSection(item)
+      );
+    },
   },
   bodyClassList: document.body.classList,
   expanded: {
