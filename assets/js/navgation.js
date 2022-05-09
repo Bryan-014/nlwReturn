@@ -23,6 +23,12 @@ let menu = {
       }
     }
   },
+  sections: [home, services, about],
+  onUpdateMenu: () => {
+    menu.navigation.sections.forEach(item =>
+      menu.navigation.activateMenuAtCurrentSection(item)
+    );
+  },
   bodyClassList: document.body.classList,
   expanded: {
     open: () => menu.bodyClassList.add('menu-expanded'),
@@ -36,16 +42,15 @@ let menu = {
       if (scrollY > 550) menu.backToTopButton.show();
       else menu.backToTopButton.hidden();
     }
+  },
+  scrollEvents: () => {
+    menu.navigation.showNavOnScroll();
+    menu.backToTopButton.onScrollEvent();
+    menu.navigation.onUpdateMenu();
   }
 };
 
-document.addEventListener('scroll', () => {
-  menu.navigation.showNavOnScroll();
-  menu.backToTopButton.onScrollEvent();
-  menu.navigation.activateMenuAtCurrentSection(home);
-  menu.navigation.activateMenuAtCurrentSection(services);
-  menu.navigation.activateMenuAtCurrentSection(about);
-});
+document.addEventListener('scroll', () => menu.scrollEvents());
 
 ScrollReveal({
   origin: 'top',
@@ -67,7 +72,4 @@ ScrollReveal({
   footer
 `);
 
-menu.backToTopButton.onScrollEvent();
-menu.navigation.activateMenuAtCurrentSection(home);
-menu.navigation.activateMenuAtCurrentSection(services);
-menu.navigation.activateMenuAtCurrentSection(about);
+menu.scrollEvents();
