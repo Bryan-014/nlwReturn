@@ -21,16 +21,6 @@ let menu = {
       ) {
         menuElement.classList.add('active');
       }
-    },
-    sections: [
-      home, 
-      services, 
-      about
-    ],
-    updateMenu: () => {
-      menu.navigation.sections.forEach(item => {
-        menu.navigation.activateMenuAtCurrentSection(item);
-      });
     }
   },
   bodyClassList: document.body.classList,
@@ -52,7 +42,9 @@ let menu = {
 document.addEventListener('scroll', () => {
   menu.navigation.showNavOnScroll();
   menu.backToTopButton.onScrollEvent();
-  menu.navigation.updateMenu();
+  menu.navigation.activateMenuAtCurrentSection(home);
+  menu.navigation.activateMenuAtCurrentSection(services);
+  menu.navigation.activateMenuAtCurrentSection(about);
 });
 
 ScrollReveal({
