@@ -14,7 +14,7 @@ let menu = {
       const menuElement = document.querySelector(
         `.menu a[href*=${section.getAttribute('id')}]`
       );
-      menuElement.navClassList.remove('active');
+      menuElement.classList.remove('active');
       if (
         targetLine >= sectionTop &&
         !(sectionTop + sectionHeight <= targetLine)
