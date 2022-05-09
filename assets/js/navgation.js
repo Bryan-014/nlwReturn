@@ -28,7 +28,9 @@ let menu = {
       about
     ],
     updateMenu: () => {
-      menu.navigation.sections.forEach(item => menu.navigation.activateMenuAtCurrentSection);
+      menu.navigation.sections.forEach(item => {
+        menu.navigation.activateMenuAtCurrentSection(item);
+      });
     }
   },
   bodyClassList: document.body.classList,
