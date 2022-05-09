@@ -68,4 +68,6 @@ ScrollReveal({
 `);
 
 menu.backToTopButton.onScrollEvent();
-menu.navigation.updateMenu();
+menu.navigation.activateMenuAtCurrentSection(home);
+menu.navigation.activateMenuAtCurrentSection(services);
+menu.navigation.activateMenuAtCurrentSection(about);
